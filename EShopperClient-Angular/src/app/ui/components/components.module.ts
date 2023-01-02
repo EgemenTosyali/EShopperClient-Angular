@@ -7,12 +7,15 @@ import { HomeModule } from './home/home.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     ProductsModule,
     BasketsModule,
     HomeModule
+  ],
+  exports: [
   ]
 })
 export class ComponentsModule { }

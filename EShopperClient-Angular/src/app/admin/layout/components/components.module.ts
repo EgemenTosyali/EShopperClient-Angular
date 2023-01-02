@@ -5,7 +5,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
-import { SidebarUiComponent } from './sidebar-ui/sidebar-ui.component';
 
 
 
@@ -14,8 +13,7 @@ import { SidebarUiComponent } from './sidebar-ui/sidebar-ui.component';
     FooterComponent,
     SidebarComponent,
     HeaderComponent,
-    SidebarComponent,
-    SidebarUiComponent
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -25,8 +23,7 @@ import { SidebarUiComponent } from './sidebar-ui/sidebar-ui.component';
   exports:[
     FooterComponent,
     SidebarComponent,
-    HeaderComponent,
-    SidebarUiComponent
+    HeaderComponent
   ]
 })
 export class ComponentsModule { }
