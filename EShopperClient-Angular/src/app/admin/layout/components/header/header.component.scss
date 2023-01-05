@@ -1,0 +1,27 @@
+// *{
+//     outline: 1px solid black;
+// }
+.dropdown:hover .dropdown-menu{
+    display: block;
+    margin-top: 0;
+    border-color: azure;
+}
+.nav-link:hover{
+    background-color: rgba(0, 0, 0, 0.100);
+}
+.search-click {
+    width: 130px;
+    transition: all 0.5s;
+  }
+  .search-click:focus {
+    width: 300px;
+    padding-left: 50px;
+  }
+  .search-click input {
+    background: transparent;
+    border: 1px solid #ccc;
+    outline: none;
+    position: absolute;
+    width: 300px;
+    left: 0%;
+  }
