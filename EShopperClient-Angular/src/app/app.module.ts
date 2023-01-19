@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdminModule,
     UiModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule
   ],
   providers: [
