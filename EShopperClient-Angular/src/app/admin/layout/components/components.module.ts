@@ -5,6 +5,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
+import { SliderComponent } from './slider/slider.component';
 
 
 
@@ -13,7 +14,8 @@ import {MatListModule} from '@angular/material/list';
     FooterComponent,
     SidebarComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import {MatListModule} from '@angular/material/list';
   exports:[
     FooterComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    SliderComponent
   ]
 })
 export class ComponentsModule { }
