@@ -11,6 +11,7 @@ import { ListComponent } from './list/list.component';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { DeleteDirective } from 'src/app/directives/admin/delete.directive';
 
 
 
@@ -18,7 +19,8 @@ import { MatTableModule } from '@angular/material/table';
   declarations: [
     ProductsComponent,
     CreateComponent,
-    ListComponent
+    ListComponent,
+    DeleteDirective
   ],
   imports: [
     CommonModule,
