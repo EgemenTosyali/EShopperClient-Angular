@@ -7,15 +7,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./delete-dialog.component.scss']
 })
 export class DeleteDialogComponent {
-constructor(public dialogRef: MatDialogRef<DeleteDialogComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: DeleteState) {}
+  constructor(public dialogRef: MatDialogRef<DeleteDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DeleteState) { }
 
-  close(){
+  close() {
     this.dialogRef.close();
   }
 }
 
-export enum DeleteState{
+export enum DeleteState {
   Yes,
   No
 }

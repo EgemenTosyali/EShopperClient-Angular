@@ -15,6 +15,7 @@ import { DeleteDirective } from 'src/app/directives/admin/delete.directive';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteDialogComponent } from 'src/app/dialogs/delete-dialog/delete-dialog.component';
 import { FileUploadModule } from 'src/app/services/common/file-upload/file-upload.module';
+import { UploadDialogComponent } from 'src/app/dialogs/upload-dialog/upload-dialog.component';
 
 
 
@@ -24,7 +25,8 @@ import { FileUploadModule } from 'src/app/services/common/file-upload/file-uploa
     CreateComponent,
     ListComponent,
     DeleteDirective,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    UploadDialogComponent
   ],
   imports: [
     CommonModule,
