@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
-    <a class="navbar-brand" routerLink="" style="color: #ff4c24;">EShopper-Angular</a>
+    <a class="navbar-brand" routerLink="">EShopper-Angular</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,17 +14,20 @@
           <a class="nav-link" aria-current="" routerLink="products">Products</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
           </a>
           <ul class="dropdown-menu">
-            <li><h4 class="dropdown-header"><i class="bi bi-gpu-card"></i> Electronics</h4></li>
-            <li><a class="dropdown-item" >GPU</a></li>
-            <li><a class="dropdown-item" >CPU</a></li>
-            <li><h4 class="dropdown-header"><i class="fa fa-bath"></i> Furnitures</h4></li>
-            <li><a class="dropdown-item" >Desk</a></li>
-            <li><a class="dropdown-item" >Chair</a></li>
+            <li>
+              <h4 class="dropdown-header"><i class="bi bi-gpu-card"></i> Electronics</h4>
+            </li>
+            <li><a class="dropdown-item">GPU</a></li>
+            <li><a class="dropdown-item">CPU</a></li>
+            <li>
+              <h4 class="dropdown-header"><i class="fa fa-bath"></i> Furnitures</h4>
+            </li>
+            <li><a class="dropdown-item">Desk</a></li>
+            <li><a class="dropdown-item">Chair</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -37,25 +40,22 @@
             <span class="bi bi-cart2 me-1"> </span>Cart</a>
         </li>
       </ul>
-      <div style="margin-right: 5px;" class="btn-group-vertical" role="group" aria-label="">
-        <div class="btn-group" role="group">
-          <button id="dropdownId" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Account
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownId">
-            <a class="dropdown-item" routerLink="">Account Settings</a>
-            <a class="dropdown-item" routerLink="">Test 1</a>
-            <a class="dropdown-item" routerLink="">Test 2</a>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <a class="dropdown-item" style="font-weight: bold; color: rgba(206, 0, 0, 0.76);" href="">Quit Account</a>
-          </div>
+      <div class="btn-group me-1">
+        <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+          Account
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="">Account Settings</a>
+          <a class="dropdown-item" routerLink="">Test 1</a>
+          <a class="dropdown-item" routerLink="">Test 2</a>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <a class="dropdown-item" style="font-weight: bold; color: rgba(206, 0, 0, 0.76);" href="">Quit Account</a>
         </div>
       </div>
       <form class="d-flex" role="search">
-        <input type="text" class="form-control me-2 search-click" name="" placeholder="search here..."/>
+        <input type="text" class="form-control me-2 search-click" name="" placeholder="search here..." />
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

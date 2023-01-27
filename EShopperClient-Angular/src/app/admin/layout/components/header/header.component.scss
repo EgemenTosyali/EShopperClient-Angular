@@ -1,13 +1,20 @@
 // *{
 //     outline: 1px solid black;
 // }
-.dropdown:hover .dropdown-menu{
-    display: block;
-    margin-top: 0;
-    border-color: azure;
+.dropdown .dropdown-menu {
+  position: absolute;
+  max-height: 0;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
+}
+.dropdown:hover .dropdown-menu {
+  visibility: visible;
+  max-height: 500px;
+  transition: max-height 0.2s ease-in;
 }
 .nav-link:hover{
-    background-color: rgba(0, 0, 0, 0.100);
+    background-color: rgba(100, 0, 0, 0.100);
 }
 .search-click {
     width: 130px;
@@ -24,4 +31,8 @@
     position: absolute;
     width: 300px;
     left: 0%;
+  }
+  .navbar-brand{
+    color: #ff4c24;
+    font-family: sans-serif;
   }
