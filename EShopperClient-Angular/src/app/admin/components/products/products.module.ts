@@ -13,9 +13,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { DeleteDirective } from 'src/app/directives/admin/delete.directive';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DeleteDialogComponent } from 'src/app/dialogs/delete-dialog/delete-dialog.component';
 import { FileUploadModule } from 'src/app/services/common/file-upload/file-upload.module';
-import { UploadDialogComponent } from 'src/app/dialogs/upload-dialog/upload-dialog.component';
+import { CommonDialogComponent } from 'src/app/dialogs/common-dialog/common-dialog.component';
 
 
 
@@ -25,8 +24,7 @@ import { UploadDialogComponent } from 'src/app/dialogs/upload-dialog/upload-dial
     CreateComponent,
     ListComponent,
     DeleteDirective,
-    DeleteDialogComponent,
-    UploadDialogComponent
+    CommonDialogComponent
   ],
   imports: [
     CommonModule,

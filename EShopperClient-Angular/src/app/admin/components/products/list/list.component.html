@@ -31,7 +31,7 @@
         </ng-container>
         <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef> Delete</th>
-            <td mat-cell *matCellDef="let element" appDelete (callback)="getProducts()" [id]="element.id"
+            <td mat-cell *matCellDef="let element" appDelete (callback)="getProducts()" [id]="element.id" [productName]="element.name"
                 controller="product"></td>
         </ng-container>
 

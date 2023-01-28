@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { DeleteDialogComponent, DeleteState } from 'src/app/dialogs/delete-dialog/delete-dialog.component';
+import { CommonDialogComponent, ConfirmState } from 'src/app/dialogs/common-dialog/common-dialog.component';
 import { CustomToastrService, MessagePosition, MessageType } from 'src/app/services/alerts/custom-toastr.service';
 import { HttpClientService } from 'src/app/services/common/http-client.service';
 declare var $: any
@@ -28,6 +28,7 @@ export class DeleteDirective {
   @Output() callback: EventEmitter<any> = new EventEmitter();
   @Input() id: string;
   @Input() controller: string;
+  @Input() productName: string;
   @HostListener("click")
   async onClick() {
     this.openDialog(async () => {
@@ -59,13 +60,13 @@ export class DeleteDirective {
   }
 
   openDialog(afterClosed: any): void {
-    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+    const dialogRef = this.dialog.open(CommonDialogComponent, {
       width: '300px',
-      data: DeleteState.Yes
+      data: { title: "Delete!!!", message: `Are you sur for Delete ${this.productName} `, confirmState: ConfirmState.Yes }
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result == DeleteState.Yes)
+      if (result.confirmState == ConfirmState.Yes)
         afterClosed();
     })
   }

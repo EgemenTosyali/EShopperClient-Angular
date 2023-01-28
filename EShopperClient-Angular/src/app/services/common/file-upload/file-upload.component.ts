@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxFileDropEntry } from 'ngx-file-drop';
-import { UploadDialogComponent, UploadState } from 'src/app/dialogs/upload-dialog/upload-dialog.component';
+import { CommonDialogComponent, ConfirmState } from 'src/app/dialogs/common-dialog/common-dialog.component';
 import { CustomToastrService, MessagePosition, MessageType } from '../../alerts/custom-toastr.service';
 import { HttpClientService } from '../http-client.service';
 
@@ -45,13 +45,13 @@ export class FileUploadComponent {
     })
   }
   openDialog(afterClosed: any): void {
-    const dialogRef = this.dialog.open(UploadDialogComponent, {
+    const dialogRef = this.dialog.open(CommonDialogComponent, {
       width: '300px',
-      data: UploadState.Yes
+      data: { title: "Upload Warning!", message: "Are you sure for upload this files", confirmState: ConfirmState.Yes }
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result == UploadState.Yes)
+      if (result.confirmState == ConfirmState.Yes)
         afterClosed();
     })
   }
