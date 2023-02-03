@@ -22,7 +22,7 @@ export class CreateComponent extends BaseComponent implements OnInit{
     action: "Upload",
     controller: "product",
     explanation: "Select or drag pictures",
-    accept: ".png, .jpg, .jpeg"
+    accept: ".png, .jpg, .jpeg, .json"
   }
   
 
