@@ -15,7 +15,8 @@ import { HttpClientService } from '../http-client.service';
 })
 export class FileUploadComponent extends BaseComponent {
   url: any;
-  constructor(private httpClientService: HttpClientService,
+  constructor(
+    private httpClientService: HttpClientService,
     private customToastr: CustomToastrService,
     private dialog: MatDialog,
     spinner: NgxSpinnerService) {

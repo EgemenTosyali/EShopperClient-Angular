@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ProductImageDialogComponent } from './dialogs/product-image-dialog/product-image-dialog.component';
 
 @NgModule({
   declarations: [

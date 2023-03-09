@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { List_Product } from 'src/app/contracts/product/list-product';
+import { ConfirmState, ProductImageDialogComponent } from 'src/app/dialogs/product-image-dialog/product-image-dialog.component';
 import { CustomToastrService, MessagePosition, MessageType } from 'src/app/services/alerts/custom-toastr.service';
 import { ProductService } from 'src/app/services/common/product.service';
 declare var $: any
@@ -14,10 +16,13 @@ declare var $: any
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent extends BaseComponent implements OnInit {
-  constructor(spinner: NgxSpinnerService, private productService: ProductService, private toastrServicer: CustomToastrService) {
+  constructor(spinner: NgxSpinnerService,
+     private productService: ProductService,
+      private toastrServicer: CustomToastrService,
+      private dialog: MatDialog) {
     super(spinner);
   }
-  displayedColumns: string[] = ['name', 'stock', 'price', 'createDate', 'updateDate', 'edit', 'delete'];
+  displayedColumns: string[] = ['name', 'stock', 'price', 'createDate', 'updateDate', 'photo', 'edit', 'delete'];
   dataSource: MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -42,5 +47,17 @@ export class ListComponent extends BaseComponent implements OnInit {
   delete(id, event) {
     const img: HTMLImageElement = event.srcElement;
     $(img.parentElement.parentElement).fadeOut(1500);
+  }
+
+  addProductImage(id: string){
+    const dialogRef = this.dialog.open(ProductImageDialogComponent, {
+      width: '1200px',
+      data: id
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.confirmState == ConfirmState.Cancel)
+        this.dialog.closeAll();
+    })
   }
 }
