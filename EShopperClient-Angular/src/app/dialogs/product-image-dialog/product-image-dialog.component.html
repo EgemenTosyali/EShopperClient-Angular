@@ -1,6 +1,19 @@
 <h2 mat-dialog-title>Upload Image</h2>
 <mat-dialog-content class="mat-typography">
   <app-file-upload [options]="options"></app-file-upload>
+
+  <mat-card class="product-image" *ngFor="let image of images">
+    <mat-card-header>
+    </mat-card-header>
+    <img style="width: 200px; height: 100px;" mat-card-image [src]="image.path">
+    <mat-card-content>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <button style="background-color: rgba(255, 72, 0, 0.712);" (click)="deleteImage(image.id, $event)" mat-button>Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  
 </mat-dialog-content>
 <div mat-dialog-actions>
   <button mat-button (click)="close()">Cancel</button>

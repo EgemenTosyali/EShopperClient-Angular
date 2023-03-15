@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { List_Product } from 'src/app/contracts/product/list-product';
-import { ConfirmState, ProductImageDialogComponent } from 'src/app/dialogs/product-image-dialog/product-image-dialog.component';
+import { ProductConfirmState, ProductImageDialogComponent } from 'src/app/dialogs/product-image-dialog/product-image-dialog.component';
 import { CustomToastrService, MessagePosition, MessageType } from 'src/app/services/alerts/custom-toastr.service';
 import { ProductService } from 'src/app/services/common/product.service';
 declare var $: any
@@ -56,7 +56,7 @@ export class ListComponent extends BaseComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.confirmState == ConfirmState.Cancel)
+      if (result.confirmState == ProductConfirmState.Cancel)
         this.dialog.closeAll();
     })
   }

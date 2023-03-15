@@ -5,6 +5,7 @@ import { ProductImageDialogComponent } from './product-image-dialog/product-imag
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { FileUploadModule } from '../services/common/file-upload/file-upload.module';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -15,7 +16,7 @@ import { FileUploadModule } from '../services/common/file-upload/file-upload.mod
   ],
   imports: [
     CommonModule,
-    MatDialogModule, MatButtonModule, FileUploadModule
+    MatDialogModule, MatButtonModule, FileUploadModule, MatCardModule
   ]
 })
 export class DialogsModule { }
