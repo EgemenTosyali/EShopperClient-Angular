@@ -36,7 +36,7 @@ export class ProductImageDialogComponent extends BaseComponent implements OnInit
   @Output() options: Partial<FileUploadOptions> = {
     accept: ".png, .jpg, .jpeg, .gif",
     action: "upload",
-    controller: "product",
+    controller: "products",
     explanation: "Select Product Images",
     queryString: `id=${this.data}`
   };

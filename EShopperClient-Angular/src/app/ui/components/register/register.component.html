@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+            <div class="mb-3">
+                <label for="InputEmail" class="form-label">Email</label>
+                <input type="email" formControlName="email" class="form-control" id="InputEmail" placeholder="Email"
+                    [ngClass]="{'is-invalid':component.email.errors}">
+                <div *ngIf="submitted && component.email.errors?.required" class="form-text invalid-feedback">Email is
+                    required!</div>
+                <div *ngIf="submitted && (component.email.errors?.maxlength || component.email.errors?.minlength)"
+                    class="form-text invalid-feedback">Email length is must be in 3 - 40 chars!</div>
+                <div *ngIf="submitted && component.email.errors?.email" class="form-text invalid-feedback">Invalid Email
+                    Adress!</div>
+            </div>
+            <div class="mb-3">
+                <label for="InputName" class="form-label">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="InputName" placeholder="Name"
+                    [ngClass]="{'is-invalid':component.name.errors}">
+                <div *ngIf="submitted && component.name.errors?.required" class="form-text invalid-feedback">Name is
+                    required!</div>
+                <div *ngIf="submitted && component.name.errors?.pattern" class="form-text invalid-feedback">Name cannot
+                    contain numeric characters!</div>
+                <div *ngIf="submitted && (component.name.errors?.maxlength || component.name.errors?.minlength)"
+                    class="form-text invalid-feedback">Minimum
+                    name length is must be in 3 - 40 chars!</div>
+            </div>
+            <div class="mb-3">
+                <label for="InputSurName" class="form-label">Surname</label>
+                <input type="text" formControlName="surname" class="form-control" id="InputSurName"
+                    placeholder="Surname" [ngClass]="{'is-invalid':component.surname.errors}">
+                <div *ngIf="submitted && component.surname.errors?.required" class="form-text invalid-feedback">Surname
+                    is
+                    required!</div>
+                <div *ngIf="submitted && component.surname.errors?.pattern" class="form-text invalid-feedback">Surname
+                    cannot
+                    contain numeric characters!</div>
+                <div *ngIf="submitted && (component.surname.errors?.maxlength || component.name.errors?.minlength)"
+                    class="form-text invalid-feedback">Minimum
+                    surname length is must be in 3 - 40 chars!</div>
+            </div>
+            <div class="mb-3">
+                <label for="InputUserName" class="form-label">UserName</label>
+                <input type="text" formControlName="userName" class="form-control" id="InputUserName"
+                    placeholder="UserName" [ngClass]="{'is-invalid':component.userName.errors}">
+                <div *ngIf="submitted && component.userName.errors?.required" class="form-text invalid-feedback">
+                    Username
+                    is required!</div>
+                <div *ngIf="submitted && (component.userName.errors?.maxlength || component.name.errors?.minlength)"
+                    class="form-text invalid-feedback">Minimum
+                    username length is must be in 3 - 40 chars!</div>
+            </div>
+            <div class="mb-3">
+                <label for="InputPassword" class="form-label">Password</label>
+                <input type="password" formControlName="password" class="form-control" id="InputPassword"
+                    placeholder="Password" [ngClass]="{'is-invalid':component.password.errors}">
+                <div *ngIf="submitted && component.password.errors?.required" class="form-text invalid-feedback">
+                    Password is
+                    required!</div>
+            </div>
+            <div class="mb-3">
+                <label for="InputPasswordValidator" class="form-label">Password Validate</label>
+                <input type="password" formControlName="passwordValidator" class="form-control"
+                    id="InputPasswordValidator" placeholder="Password Validate"
+                    [ngClass]="{'is-invalid':component.passwordValidator.errors}">
+                <div *ngIf="submitted && formGroup.hasError('notSame')" style="color:rgb(233, 0, 0)" class="form-text">
+                    Password validate is
+                    not same!</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>

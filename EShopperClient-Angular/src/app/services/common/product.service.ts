@@ -15,7 +15,7 @@ export class ProductService {
   constructor(private httpClientService: HttpClientService) { }
 
   create(product: CreateProduct, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void) {
-    this.httpClientService.post({ controller: "product" }, product).subscribe(() => {
+    this.httpClientService.post({ controller: "products" }, product).subscribe(() => {
       successCallBack();
     }, (errorResponse: HttpErrorResponse) => {
       const _error: Array<{ key: string, value: Array<string> }> = errorResponse.error;
@@ -33,7 +33,7 @@ export class ProductService {
   async get(page: number = 0, size: number = 5, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number, products: List_Product[] }> {
     const promiseData: Promise<{ totalCount: number, products: List_Product[] }> = this.httpClientService.get<{ totalCount: number, products: List_Product[] }>(
       {
-        controller: "product",
+        controller: "products",
         queryString: `page=${page}&size=${size}`
       }).toPromise();
 
@@ -51,7 +51,7 @@ export class ProductService {
   async readImages(id: string, successCallBack?: () => void): Promise<List_Product_Image[]> {
     const getObservable: Observable<List_Product_Image[]> = this.httpClientService.get<List_Product_Image[]>({
       action: "getproductimages",
-      controller: "product",
+      controller: "products",
     }, id)
 
     const images: List_Product_Image[] = await firstValueFrom(getObservable)
@@ -62,7 +62,7 @@ export class ProductService {
   async deleteImages(id: string, imageId: string, successCallBack?: ()=> void) {
     const deleteObservable = this.httpClientService.delete({
       action: "deleteproductimage",
-      controller: "product",
+      controller: "products",
       queryString: `imageId=${imageId}`
     }, id)
     await firstValueFrom(deleteObservable)
