@@ -5,6 +5,7 @@ import { Create_User } from 'src/app/contracts/product/users/create_user';
 import { Observable, firstValueFrom } from 'rxjs';
 import { TokenResponse } from 'src/app/contracts/tokens/token-response';
 import { CustomToastrService, MessagePosition, MessageType } from '../alerts/custom-toastr.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class UserService {
 
   constructor(
     private httpClientService: HttpClientService,
-    private customToastr: CustomToastrService) { }
+    private customToastr: CustomToastrService,
+    private router: Router) { }
 
   async create(user: User) {
     const observable: Observable<Create_User | User> = this.httpClientService.post<Create_User | User>({
@@ -33,9 +35,10 @@ export class UserService {
     if (tokenRespose) {
       localStorage.setItem("accessToken", tokenRespose.token.accessToken)
       this.customToastr.message("Welcome!", "Welcome!", {
-        messagePosition: MessagePosition.TopRight,
+        messagePosition: MessagePosition.TopCenter,
         messageType: MessageType.Success
       })
+      this.router.navigate([""])
     }
     else{
       this.customToastr.message("Login Failed!", "Login Failed!", {
