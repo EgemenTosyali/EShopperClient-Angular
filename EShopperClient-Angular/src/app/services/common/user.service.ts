@@ -25,13 +25,17 @@ export class UserService {
     return await firstValueFrom(observable) as Create_User
   }
 
-  async login(usernameOrEmail: string, password: string, callBackFunc?: () => void): Promise<any> {
+  async login(usernameOrEmail: string, password: string, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<any> {
     const observable: Observable<any | TokenResponse> = this.httpClientService.post<any | TokenResponse>({
       controller: "users",
       action: "login"
     }, { usernameOrEmail, password })
 
-    const tokenRespose: TokenResponse = await firstValueFrom(observable)
+    let tokenRespose: TokenResponse = null
+    try {
+      tokenRespose = await firstValueFrom(observable)
+    }
+    catch { }
     if (tokenRespose) {
       localStorage.setItem("accessToken", tokenRespose.token.accessToken)
       this.customToastr.message("Welcome!", "Welcome!", {
@@ -40,12 +44,11 @@ export class UserService {
       })
       this.router.navigate([""])
     }
-    else{
+    else {
       this.customToastr.message("Login Failed!", "Login Failed!", {
         messagePosition: MessagePosition.TopRight,
         messageType: MessageType.Error
       })
     }
-    callBackFunc()
   }
 }
