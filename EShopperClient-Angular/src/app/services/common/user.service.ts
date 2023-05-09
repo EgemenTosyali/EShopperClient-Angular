@@ -42,7 +42,7 @@ export class UserService {
         messagePosition: MessagePosition.TopCenter,
         messageType: MessageType.Success
       })
-      this.router.navigate([""])
+      successCallBack()
     }
     else {
       this.customToastr.message("Login Failed!", "Login Failed!", {
