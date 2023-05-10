@@ -11,9 +11,10 @@
             <input #txtPassword type="password" formControlName="password" class="form-control" id="InputPassword"
                 placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary"
+        <asl-google-signin-button></asl-google-signin-button>
+        <button type="submit" class="btn btn-primary mt-1"
             (click)="login(txtUsernameOrEmail.value, txtPassword.value)">Submit</button>
-
+        
     </div>
     <div class="col-md-3"></div>
 </div>

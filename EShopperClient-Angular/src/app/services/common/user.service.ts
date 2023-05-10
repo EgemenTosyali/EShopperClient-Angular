@@ -6,6 +6,7 @@ import { Observable, firstValueFrom } from 'rxjs';
 import { TokenResponse } from 'src/app/contracts/tokens/token-response';
 import { CustomToastrService, MessagePosition, MessageType } from '../alerts/custom-toastr.service';
 import { Router } from '@angular/router';
+import { SocialUser } from '@abacritt/angularx-social-login';
 
 @Injectable({
   providedIn: 'root'
@@ -38,17 +39,22 @@ export class UserService {
     catch { }
     if (tokenRespose) {
       localStorage.setItem("accessToken", tokenRespose.token.accessToken)
-      this.customToastr.message("Welcome!", "Welcome!", {
-        messagePosition: MessagePosition.TopCenter,
-        messageType: MessageType.Success
-      })
       successCallBack()
     }
-    else {
-      this.customToastr.message("Login Failed!", "Login Failed!", {
-        messagePosition: MessagePosition.TopRight,
-        messageType: MessageType.Error
-      })
+    errorCallBack("Connected successfuly but user not found!")
+  }
+  async googleLogin(user: SocialUser, successCallBack?: () => void, errorCallBack?:(errorMessage: string) => void): Promise<any> {
+    const observable = this.httpClientService.post<SocialUser | TokenResponse>({
+      action: "googlelogin",
+      controller: "users"
+    }, user)
+
+    const tokenRespose = await firstValueFrom(observable) as TokenResponse
+
+    if (tokenRespose) {
+      localStorage.setItem("accessToken",tokenRespose.token.accessToken)
+      successCallBack()
     }
+    errorCallBack("Connected successfuly but user not found!")
   }
 }
