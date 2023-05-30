@@ -25,36 +25,4 @@ export class UserService {
 
     return await firstValueFrom(observable) as Create_User
   }
-
-  async login(usernameOrEmail: string, password: string, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<any> {
-    const observable: Observable<any | TokenResponse> = this.httpClientService.post<any | TokenResponse>({
-      controller: "users",
-      action: "login"
-    }, { usernameOrEmail, password })
-
-    let tokenRespose: TokenResponse = null
-    try {
-      tokenRespose = await firstValueFrom(observable)
-    }
-    catch { }
-    if (tokenRespose) {
-      localStorage.setItem("accessToken", tokenRespose.token.accessToken)
-      successCallBack()
-    }
-    errorCallBack("Connected successfuly but user not found!")
-  }
-  async googleLogin(user: SocialUser, successCallBack?: () => void, errorCallBack?:(errorMessage: string) => void): Promise<any> {
-    const observable = this.httpClientService.post<SocialUser | TokenResponse>({
-      action: "googlelogin",
-      controller: "users"
-    }, user)
-
-    const tokenRespose = await firstValueFrom(observable) as TokenResponse
-
-    if (tokenRespose) {
-      localStorage.setItem("accessToken",tokenRespose.token.accessToken)
-      successCallBack()
-    }
-    errorCallBack("Connected successfuly but user not found!")
-  }
 }

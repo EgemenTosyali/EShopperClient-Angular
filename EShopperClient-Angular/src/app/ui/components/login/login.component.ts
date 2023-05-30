@@ -6,6 +6,7 @@ import { SpinnerType } from 'src/app/base/base.component';
 import { BaseComponent } from 'src/app/base/base.component';
 import { CustomToastrService, MessagePosition, MessageType } from 'src/app/services/alerts/custom-toastr.service';
 import { AuthService } from 'src/app/services/common/auth.service';
+import { UserAuthService } from 'src/app/services/common/models/user-auth.service';
 import { UserService } from 'src/app/services/common/user.service';
 
 @Component({
@@ -15,6 +16,7 @@ import { UserService } from 'src/app/services/common/user.service';
 })
 export class LoginComponent extends BaseComponent {
   constructor(
+    private userAuthService: UserAuthService,
     private userService: UserService,
     private authService: AuthService,
     private socialAuthService: SocialAuthService,
@@ -26,7 +28,7 @@ export class LoginComponent extends BaseComponent {
 
     socialAuthService.authState.subscribe(async (user: SocialUser) => {
       this.showSpinner(SpinnerType.Ball)
-      await userService.googleLogin(user, () => {
+      await userAuthService.googleLogin(user, () => {
         this.hideSpinner(SpinnerType.Ball)
         this.customToastr.message("Welcome!", "Welcome!", {
           messagePosition: MessagePosition.TopCenter,
@@ -51,7 +53,7 @@ export class LoginComponent extends BaseComponent {
 
   async login(txtUsernameOrEmail: string, txtPassword: string) {
     this.showSpinner(SpinnerType.Ball)
-    await this.userService.login(txtUsernameOrEmail, txtPassword, () => {
+    await this.userAuthService.login(txtUsernameOrEmail, txtPassword, () => {
       this.hideSpinner(SpinnerType.Ball)
       this.customToastr.message("Welcome!", "Welcome!", {
         messagePosition: MessagePosition.TopCenter,
