@@ -47,7 +47,7 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <a class="dropdown-item" style="font-weight: bold; color: rgba(206, 0, 0, 0.76);" *ngIf="authService.isAuthenticated">Quit Account</a>
+          <a class="dropdown-item" (click)="signOut()" style="cursor: pointer; font-weight: bold; color: rgba(206, 0, 0, 0.76);" *ngIf="authService.isAuthenticated">Quit Account</a>
         </div>
       </div>
       <form class="d-flex" role="search">
