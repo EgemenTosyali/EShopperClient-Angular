@@ -14,6 +14,7 @@ export class HeaderComponent {
   }
   signOut() {
     localStorage.removeItem("accessToken")
+    localStorage.removeItem("refreshToken")
     this.authService.authChecker()
     this.router.navigate([""])
     this.customToastr.message("Successfuly logged out", "Log out", {

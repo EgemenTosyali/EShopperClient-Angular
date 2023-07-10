@@ -28,6 +28,7 @@ export class UserAuthService {
     catch { }
     if (tokenRespose) {
       localStorage.setItem("accessToken", tokenRespose.token.accessToken)
+      localStorage.setItem("refreshToken",tokenRespose.token.refreshToken)
       successCallBack()
     }
     errorCallBack("Connected successfuly but user not found!")
@@ -42,8 +43,24 @@ export class UserAuthService {
 
     if (tokenRespose) {
       localStorage.setItem("accessToken", tokenRespose.token.accessToken)
+      localStorage.setItem("refreshToken",tokenRespose.token.refreshToken)
       successCallBack()
     }
     errorCallBack("Connected successfuly but user not found!")
+  }
+  async refreshTokenLogin(refreshToken: string, callBackFunc?: () => void): Promise<any> {
+    alert("refreshtoken triggered")
+    const observable: Observable<any | TokenResponse> = this.httpClientService.post({
+      action: "refreshtokenlogin",
+      controller: "auth"
+    }, { refreshToken: refreshToken })
+
+    const tokenRespose: TokenResponse = await firstValueFrom(observable) as TokenResponse
+
+    if(tokenRespose){
+      localStorage.setItem("accessToken",tokenRespose.token.accessToken)
+      localStorage.setItem("refreshToken",tokenRespose.token.refreshToken)
+      alert("refreshtoken login")
+    }
   }
 }
