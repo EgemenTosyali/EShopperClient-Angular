@@ -40,8 +40,7 @@ To set up a local copy and get it running, follow these simple steps as examples
     npm run ng serve
   ```
   thats it
-
-  image1
+  ![](images/1.png)
 
 
 ## Contributing
