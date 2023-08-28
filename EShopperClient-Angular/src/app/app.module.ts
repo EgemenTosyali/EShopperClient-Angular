@@ -45,7 +45,7 @@ import { GlobalErrorHandlerInterceptorService } from './services/common/global-e
         autoLogin: false,
         providers: [{
           id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider("679370732223-pjg7iiarc39citrcq8gvf3k2kblmteni.apps.googleusercontent.com")
+          provider: new GoogleLoginProvider("970395920865-i11dg6sbjr9438ek9gb62lan9g7gv5vl.apps.googleusercontent.com")
         }],
         onError: err => console.log(err)
       } as SocialAuthServiceConfig
