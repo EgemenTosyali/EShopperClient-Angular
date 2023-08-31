@@ -38,7 +38,7 @@ import { GlobalErrorHandlerInterceptorService } from './services/common/global-e
     GoogleSigninButtonModule
   ],
   providers: [
-    { provide: "baseUrl", useValue: "https://localhost:7027/api", multi: true },
+    { provide: "baseUrl", useValue: "http://localhost:7027/api", multi: true },
     {
       provide: "SocialAuthServiceConfig",
       useValue: {

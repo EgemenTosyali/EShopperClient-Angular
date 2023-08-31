@@ -44,7 +44,7 @@ export class ProductService {
   }
 
   async delete(id: string) {
-    const deleteObservable: Observable<any> = this.httpClientService.delete<any>({ controller: "product" }, id);
+    const deleteObservable: Observable<any> = this.httpClientService.delete<any>({ controller: "products" }, id);
     await firstValueFrom(deleteObservable);
   }
 
