@@ -31,7 +31,6 @@ export class UserAuthService {
       localStorage.setItem("refreshToken",tokenRespose.token.refreshToken)
       successCallBack()
     }
-    errorCallBack("Connected successfuly but user not found!")
   }
   async googleLogin(user: SocialUser, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<any> {
     const observable = this.httpClientService.post<SocialUser | TokenResponse>({
