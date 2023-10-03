@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommonDialogComponent } from './common-dialog.component';
+import { AuthorizeMenuComponent } from './authorize-menu.component';
 
-describe('CommonDialogComponent', () => {
-  let component: CommonDialogComponent;
-  let fixture: ComponentFixture<CommonDialogComponent>;
+describe('AuthorizeMenuComponent', () => {
+  let component: AuthorizeMenuComponent;
+  let fixture: ComponentFixture<AuthorizeMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CommonDialogComponent ]
+      declarations: [ AuthorizeMenuComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CommonDialogComponent);
+    fixture = TestBed.createComponent(AuthorizeMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
