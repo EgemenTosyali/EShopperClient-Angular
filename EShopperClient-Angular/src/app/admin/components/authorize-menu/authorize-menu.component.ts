@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { Menu } from 'src/app/contracts/application-configurations/menu';
+import { AuthorizeMenuDialogComponent } from 'src/app/dialogs/authorize-menu-dialog/authorize-menu-dialog.component';
 import { CommonDialogComponent, ConfirmState } from 'src/app/dialogs/common-dialog/common-dialog.component';
 import { ApplicationService } from 'src/app/services/common/models/application.service';
 
@@ -22,10 +23,10 @@ export class AuthorizeMenuComponent implements OnInit {
   
   constructor(private applicationService: ApplicationService, private dialog : MatDialog) {
   }
-  assignRole(code: string){
-    const dialogRef = this.dialog.open(CommonDialogComponent, {
-      width: '1200px',
-      data: code
+  assignRole(code: string, name: string){
+    const dialogRef = this.dialog.open(AuthorizeMenuDialogComponent, {
+      width: '700px',
+      data: {code,name}
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -60,7 +61,7 @@ export class AuthorizeMenuComponent implements OnInit {
       expandable: menu.actions?.length > 0,
       name: menu.name,
       level: level,
-      code: menu.code 
+      code: menu.code
     };
   },
     menu => menu.level,

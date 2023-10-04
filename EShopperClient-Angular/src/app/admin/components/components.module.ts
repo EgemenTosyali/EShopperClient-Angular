@@ -5,18 +5,23 @@ import { OrdersModule } from './orders/orders.module';
 import { ProductsModule } from './products/products.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthorizeMenuModule } from './authorize-menu/authorize-menu.module';
+import { RoleModule } from './role/role.module';
+import { CreateComponent } from './create/create.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CreateComponent
+  ],
   imports: [
     CommonModule,
     CustomersModule,
     OrdersModule,
     ProductsModule,
     DashboardModule,
-    AuthorizeMenuModule
+    AuthorizeMenuModule,
+    RoleModule
   ]
 })
 export class ComponentsModule { }

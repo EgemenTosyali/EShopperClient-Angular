@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { DialogsModule } from 'src/app/dialogs/dialogs.module';
 
 
 
@@ -17,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule.forChild([
       {path:"",component: AuthorizeMenuComponent}
     ]),
-    MatTreeModule,MatIconModule,MatButtonModule
+    MatTreeModule,MatIconModule,MatButtonModule,DialogsModule
   ]
 })
 export class AuthorizeMenuModule { }

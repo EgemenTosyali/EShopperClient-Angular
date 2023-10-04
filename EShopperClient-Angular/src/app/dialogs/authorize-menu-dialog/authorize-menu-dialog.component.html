@@ -1,1 +1,9 @@
-<p>authorize-menu-dialog works!</p>
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+    <p>{{data.code}}</p>
+    <div matBadge="11" matBadgeOverlap="false" class="demo-section">Text with a badge</div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Yes</button>
+</div>
