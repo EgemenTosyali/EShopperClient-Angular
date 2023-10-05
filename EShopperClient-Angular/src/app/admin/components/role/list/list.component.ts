@@ -30,10 +30,7 @@ export class ListComponent extends BaseComponent implements OnInit{
   this.showSpinner(SpinnerType.Ball);
     const allRoles: { roles:List_Role[], totalRoleCount: number } = await this.roleService.getRoles(this.paginator ?
       this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5
-      , () => this.hideSpinner(SpinnerType.Ball), errorMessage => this.toastrServicer.message(errorMessage, "error", {
-        messageType: MessageType.Error,
-        messagePosition: MessagePosition.TopRight
-      }))
+      , () => this.hideSpinner(SpinnerType.Ball))
       this.hideSpinner(SpinnerType.Ball)
 
     this.dataSource = new MatTableDataSource<List_Role>(allRoles.roles);

@@ -13,8 +13,9 @@ export class RoleService {
 
   async getRoles(page:number = 0 , size:number = 5, successCallBack?:()=>void,errorCallback?:(error)=>void){
     const observable : Observable<any> = this.httpClientService.get({
-      controller:"roles",
-      queryString: `page=${page}&size=${size}`
+      controller:"Roles",
+      action:"GetRoles",
+      queryString: `Page=${page}&Size=${size}`
     })
 
     const promiseData = firstValueFrom(observable)
@@ -25,7 +26,8 @@ export class RoleService {
   }
   async createRole(name:string, successCallback?: ()=> void, errorCallback?:(error)=> void){
     const observable :Observable<any> = this.httpClientService.post({
-      controller:"roles"
+      controller:"Roles",
+      action:"CreateRole"
     },{name:name})
 
     const promiseData = firstValueFrom(observable)
